@@ -35,7 +35,7 @@ pipeline {
                 def userInput = input(
                  id: 'userInput', message: 'Enter path of test reports:?', 
                  parameters: [
-                 [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',]
+                 [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',name: 'User_Name']
                 ])
             }
             }
