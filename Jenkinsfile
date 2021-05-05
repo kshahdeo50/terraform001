@@ -37,19 +37,32 @@ pipeline {
                  parameters: [
                  [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',name: 'User_Name']
                 ])
+                
+                
+                sed -i "s#Billing#${userInput}#g" variables.tf
+                sed -i "s#siba#${User_Name}#g" variables.tf
             }
+                
+                
             }
         }
         
         
-            stage('terraform plan'){
+        
+            stage('Plan'){
                 steps{
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'terraform plan'
                 }
                }
               }
- 
+       stage('Apply'){
+                steps{
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    sh 'terraform apply -auto-approve'
+                }
+               }
+              }
     
     
     }
