@@ -1,6 +1,20 @@
-node
-{
-  stage('Scm checkout'){
-  git credentialsId: 'Github', url: 'https://github.com/kshahdeo50/terraform001.git'
-}
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('Test') { 
+            steps {
+                // 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                // 
+            }
+        }
+    }
 }
