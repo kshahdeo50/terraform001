@@ -3,7 +3,7 @@ module "create_group" {
 }
 
   
-  module "attach_user"{
+  module "attach_userr"{
     source  = "./modules/attach"
     u_name  = var.u_name
     g_name  = var.g_name
