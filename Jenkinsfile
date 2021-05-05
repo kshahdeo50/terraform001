@@ -24,7 +24,7 @@ pipeline {
                 description:'Groups', name:'Group Choices', choices: "QA\nBilling\nReadOnly\nAdministrator\nMaster"]
              ])
 
-            println(userInput); //Use this value to branch to different logic if needed
+            println(userInput);
     }
            }
 
@@ -32,8 +32,8 @@ pipeline {
         stage('User Name'){
             steps{
             script {
-                def userInput = input(
-                 id: 'userInput', message: 'Enter path of test reports:?', 
+                def userInput2 = input(
+                 id: 'userInput2', message: 'Enter path of test reports:?', 
                  parameters: [
                  [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',name: 'User_Name']
                 ])
