@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('teraaform init') { 
             steps {
                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                 sh 'yum install -y yum-utils'
@@ -10,6 +10,11 @@ pipeline {
                 sh 'terraform init'
             }
            }
+            stage('terraform plan'){
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    sh 'terraform plan'
+                }
+            }
         }
     }
 }
