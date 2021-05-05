@@ -29,8 +29,16 @@ pipeline {
            }
 
 }
+        stage('User Name'){
+            script {
+                def userInput = input(
+                 id: 'userInput', message: 'Enter path of test reports:?', 
+                 parameters: [
+                 [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',]
+                ])
+            }
         
-        
+        }
         
         
             stage('terraform plan'){
