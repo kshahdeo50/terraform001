@@ -18,6 +18,7 @@ pipeline {
         
         stage('Wait for user to input text?') {
            steps {
+               script{
              def userInput = input(id: 'userInput', message: 'Merge to?',
              parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
                 description:'Groups', name:'Group Choices', choices: "QA\nBilling\nReadOnly\nAdministrator\nMaster"]
@@ -25,6 +26,7 @@ pipeline {
 
             println(userInput); //Use this value to branch to different logic if needed
     }
+           }
 
 }
         
