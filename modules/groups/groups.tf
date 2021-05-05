@@ -2,7 +2,7 @@ resource "aws_iam_group" "Administrator" {
   name = "admin"
 }
 resource "aws_iam_group" "Billing" {
-  name = "biling"
+  name = "billing"
 }
 resource "aws_iam_group" "ReadOnly" {
   name = "readonly"
