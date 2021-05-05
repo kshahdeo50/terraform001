@@ -6,15 +6,5 @@ pipeline {
                 sh 'terraform init'
             }
         }
-        stage('Test') { 
-            steps {
-                // 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                // 
-            }
-        }
     }
 }
