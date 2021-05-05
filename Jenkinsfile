@@ -30,6 +30,7 @@ pipeline {
 
 }
         stage('User Name'){
+            steps{
             script {
                 def userInput = input(
                  id: 'userInput', message: 'Enter path of test reports:?', 
@@ -37,7 +38,7 @@ pipeline {
                  [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Path of config file',]
                 ])
             }
-        
+            }
         }
         
         
