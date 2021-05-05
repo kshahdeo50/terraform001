@@ -3,5 +3,5 @@ variable "g_name" {
   default = "billing"
 }
 variable "u_name" {
-  default = "siba"
+  default = "kuldeep@123"
 }
