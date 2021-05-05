@@ -1,12 +1,6 @@
-provider "aws" {
-  region     = "us-east-1"
-  access_key = "AWS_ACCESS_KEY_ID"
-  secret_key = "AWS_SECRET_ACCESS_KEY"
-}
-
 
 provider "aws" {
   region = "us-east-1"
-  shared_credentials_file = "${var.project_name}.credentials"
-  profile = var.environment_name
+  shared_credentials_file ="terra"
+  profile = "dev"
 }
