@@ -1,6 +1,6 @@
 variable "g_name" {
   type = string
-  default = "Billing"
+  default = "billing"
 }
 variable "u_name" {
   default = "siba"
