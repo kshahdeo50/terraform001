@@ -9,6 +9,7 @@ pipeline {
         
         stage('teraaform init') { 
             steps {
+                script{
                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                    if  (params.INPUT == "CREATE" ){
                 sh 'yum install -y yum-utils'
@@ -19,6 +20,7 @@ pipeline {
            }
           }
          }
+        }    
         
         
         /*Stage 2----*/
