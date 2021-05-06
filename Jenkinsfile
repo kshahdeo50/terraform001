@@ -59,6 +59,7 @@ pipeline {
         
             stage('Plan'){
                 steps{
+                    script{
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     if  (params.INPUT == "CREATE" ){
                     sh 'terraform plan'
@@ -66,10 +67,11 @@ pipeline {
               }
              }
             }
-        
+           }
         /*Stage 5*/
            stage('Apply'){
                 steps{
+                    script{
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     if  (params.INPUT == "CREATE" ){
                     sh 'terraform apply -auto-approve'
@@ -77,10 +79,12 @@ pipeline {
                }
               }
              }
+           }
         
         /*stage 6*/
         stage('Destroy'){
                 steps{
+                    script{
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     if  (params.INPUT == "DESTROY" ){
                     sh 'terraform destroy -auto-approve'
@@ -88,6 +92,7 @@ pipeline {
                }
               }
              }
+            }  
         
         
         
