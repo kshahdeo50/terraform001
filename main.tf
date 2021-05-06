@@ -9,7 +9,6 @@ module "user_create" {
   
     
 module "attach_user"{
-  depends_on=["module.user_create"]
     source  = "./modules/attach"
     u_name  = var.u_name
     g_name  = var.g_name
