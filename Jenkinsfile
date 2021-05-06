@@ -69,7 +69,7 @@ pipeline {
             }
            }
         /*Stage 5*/
-         stage('Tfsec'){
+         stage('TF-SEC'){
               steps{
                 script{
                   if  (params.INPUT == 'CREATE' )
