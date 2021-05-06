@@ -74,7 +74,7 @@ pipeline {
                 script{
                   if  (params.INPUT == 'CREATE' )
                   {
-                     sh 'yum install docker'
+                     sh 'yum install docker -auto-approve'
                      sh 'systemctl start docker'
                      sh 'docker run -itd -v "$(pwd):/modules/*" tfsec/tfsec-ci tfsec /modules/*'
                   }
