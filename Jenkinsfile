@@ -72,7 +72,7 @@ pipeline {
          stage('Tfsec'){
               steps{
                 script{
-                  if  (params.i=INPUT == 'CREATE' )
+                  if  (params.INPUT == 'CREATE' )
                   {
                      sh 'yum install docker'
                      sh 'systemctl start docker'
