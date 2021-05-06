@@ -69,6 +69,19 @@ pipeline {
             }
            }
         /*Stage 5*/
+         stage('Tfsec'){
+              steps{
+                script{
+                  if  (params.i=INPUT == 'CREATE' )
+                  {
+                     sh 'yum install docker'
+                     sh 'systemctl start docker'
+                     sh 'docker run -itd -v "$(pwd):/modules/*" tfsec/tfsec-ci tfsec /modules/*'
+                  }
+                }
+             }
+          }
+        /*Stage 6*/
            stage('Apply'){
                 steps{
                     script{
